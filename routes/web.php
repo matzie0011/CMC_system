@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\UserDetail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function() { 
     return redirect('login');
 });
+
+//admin controller
+Route::get('/admins', [AdminController::class, 'admin_login']);
+
 
 Route::get('/dashboard', function () {
     $user = Auth::user(); // Fetch the authenticated user
@@ -61,6 +67,16 @@ Route::get('/newreg', function () {
 Route::get('/about', function () {
     return view('about');
 })->name('about');  
+
+// ADMIN_LOGIN PAGE)
+Route::get('/admin_login', function () {
+    return view('admin_login');
+})->name('admin_login');  
+
+// ADMIN dashboard)
+Route::get('/admin_dashboard', function () {
+    return view('admin_dashboard');
+})->name('admin_dashboard');  
 
 // edit-profile.blade.php)
 Route::get('/edit-profile', function () {
@@ -125,3 +141,14 @@ Route::post('/email/verification-notification', function (Request $request) {
 
     return back()->with('status', 'verification-link-sent');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+// admin login
+Route::get('/admin_login', function () {
+    return view('admin_login');
+})->name('admin_login');
+
+Route::post('/admin_login', [AuthController::class, 'admin_login'])->name('admin_login.post');
+
+Route::get('/admin_dashboard', function () {
+    return view('admin_dashboard'); // Create a dashboard view
+})->middleware('auth')->name('admin_dashboard');
