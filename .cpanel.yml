@@ -1,0 +1,13 @@
+version: 2
+update: true
+
+deployment:
+  type: "git"
+  branch: "main"  # Change this to your branch if different
+  root: "public_html"  # Change if your deployment directory is different
+  build: false  # Set to true if you need to run a build command
+
+# Optional: Specify any custom build or deployment commands
+# commands:
+#   - "npm install"  # Uncomment if you use npm
+#   - "npm run build"  # Uncomment if you need to build your project
