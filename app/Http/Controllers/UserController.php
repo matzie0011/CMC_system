@@ -23,6 +23,15 @@ class UserController extends Controller
         // Return the view with the data
         return view('profilepage', compact('data'));
     }
+
+//     // COUNT THE TOTAL
+//     public function dashboard()
+// {
+//     $userCount = User::count(); // Assuming you have a User model
+//     return view('your-view', compact('userCount'));
+// }
+
+
 }
 
 // testing for login and fecth the users info  

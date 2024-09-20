@@ -274,7 +274,6 @@
     background-color: darkred; /* Darker red on hover */
 }
 
-
 /*  */
 .dropdown-content {
             display: none;
@@ -363,7 +362,8 @@
     }
   </style>
 </head>
-<body><div class="combined-sidebar">
+<body>
+<div class="combined-sidebar">
     <!-- Logo Section -->
     <div class="logo text-center mb-4">
     <img src="{{ asset('images/cmc.png') }}" alt="Logo" class="img-fluid logo-img">
@@ -400,6 +400,16 @@
         </button>
     </form>
 </div>
+
+    <!--
+    <li id='all-nav'>
+      <a href='#' class='dropdown-btn'><i class="fa fa-exclamation-triangle"></i> Pending <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+      <ul id='nav' class='second-nav-ul'>
+        <li class='nav-items'><a href='#'>Banned IPs</a></li>
+      </ul>
+    </li>
+    -->
+  </div>
   <!--MONITORING-->
   <div class='center-content'>
     <section>
@@ -432,7 +442,7 @@
         <div class='newest-members'>
   <div class='notifications'>
     <div class='notify-header'>
-      <h2><i class="fa fa-users"></i> List of Users </h2>
+      <h2><i class="fa fa-users"></i> List of Users For deliberation </h2>
       <div class='action-holder'>
         <i class="fa fa-bell"></i> <i class="fa fa-cog"></i>
       </div>
@@ -450,34 +460,29 @@
               <th>Date of Birth</th>
               <th>Age</th>
               <th>Status</th>
-              <th>Remarks</th>
               <th>View</th>
             </tr>
           </thead>
           <tbody>
-            @foreach ($tables as $table)
+         
               
-                <td>{{ $table->serial_number }}</td>
-                <td>{{ $table->rank }}</td> 
-                <td>{{ $table->unit_assignment }}</td>
-                <td>{{ $table->lname . ' ' . $table->fname . ' ' . $table->mname }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                
-                <td>{{ $table->date_of_birth }}</td>
-@php
-                    $dateOfBirth = new DateTime($table->date_of_birth);
-                    $currentDate = new DateTime();
-                    $age = $currentDate->diff($dateOfBirth)->y;
-                @endphp
-                <td>{{ $age }}  </td>
-                <td> </td>
+                <td></td>
+
+ <td> </td>
+                
                 <td> </td>
                 <td>
-                  <a href="{{ route('profilepage', ['serial_number' => $table->serial_number]) }}" class="update-btn">
+                  <a href="" class="update-btn">
                     <i class="fa fa-eye"></i>
                   </a>
                 </td>
               </tr>
-            @endforeach
+      
           </tbody>
         </table>
  <!-- No Results Message -->
