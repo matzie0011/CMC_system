@@ -153,3 +153,25 @@ Route::post('/admin_login', [AuthController::class, 'admin_login'])->name('admin
 Route::get('/admin_dashboard', function () {
     return view('admin_dashboard'); // Create a dashboard view
 })->middleware('auth')->name('admin_dashboard');
+
+// DELIBERATION
+Route::get('/deliberation', function () {
+    return view('deliberation');
+})->name('deliberation');
+
+// MEDICAL
+Route::get('/medical', function () {
+    return view('medical');
+})->name('medical');
+// PFT
+Route::get('/pft', function () {
+    return view('pft');
+})->name('pft');
+// Verified
+Route::get('/verified', function () {
+    return view('verified');
+})->name('verified');
+// incomplete_req
+Route::get('/incomplete', function () {
+    return view('incomplete');
+})->name('incomplete');
